@@ -8,12 +8,13 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+
+
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("localTasks")) || []);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));         
-})
-  
+    localStorage.setItem("localTasks", JSON.stringify(tasks));
+  }, [tasks])
 
 
 
@@ -35,23 +36,26 @@ function App() {
 
       return task;
     }))
-  }
+  };
 
   const toggleAllTasksDone = () => {
     setTasks(tasks => tasks.map(task => ({ ...task, done: true, })))
 
   }
 
-  const addNewTask = (content) => {
-    setTasks(tasks => [
-      ...tasks,
-      {
-        content: content,
-        done: false,
-        id: tasks.lenght === 0 ? 1 : tasks[tasks.length - 1].id + 1
-      }
-    ])
-   
+  const addNewTask = (newTaskContent) => {
+    if(newTaskContent !== "") {
+      setTasks(tasks => [
+        ...tasks,
+        {
+          content: newTaskContent,
+          done: false,
+          id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
+        }
+      ]);
+  
+    } 
+    
   }
 
   return (
@@ -73,7 +77,8 @@ function App() {
             hideDone={hideDone}
             toggleHideDone={toggleHideDone}
             toggleAllTasksDone={toggleAllTasksDone}
-          />}
+          />
+        }
         body={
           <Tasks tasks={tasks} hideDone={hideDone} removeTask={removeTask} toggleTaskDone={toggleTaskDone} />
         }
