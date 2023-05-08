@@ -8,15 +8,12 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [hideDone, setHideDone] = useState(false);
-
-  const taskLocalStorage = localStorage.getItem("tasks")
-
-  let [tasks, setTasks] = useState(JSON.parse(taskLocalStorage));
-
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));     
+    localStorage.setItem("tasks", JSON.stringify(tasks));         
 })
+  
 
 
 
