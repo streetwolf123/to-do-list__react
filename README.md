@@ -14,7 +14,7 @@ To-Do-list It is an application that helps you organize your day or organize you
 [https://streetwolf123.github.io/currency-converter__react/](https://streetwolf123.github.io/to-do-list__react/)
 
 
-![Pictures of website]((https://github.com/streetwolf123/to-do-list__react/blob/main/public/image/Zrzut%20ekranu%202023-04-14%20o%2021.37.48.png?raw=true))
+![Pictures of website](https://github.com/streetwolf123/to-do-list__react/blob/main/public/image/Zrzut%20ekranu%202023-04-14%20o%2021.37.48.png?raw=true)
 
 ### Technologies
 * HTML
