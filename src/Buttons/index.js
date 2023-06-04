@@ -1,18 +1,22 @@
-import "./style.css"
+import { SectionButtons, Button } from "./styled";
 
-const Buttons = ({tasks, hideDone, toggleHideDone, toggleAllTasksDone}) => (
+
+
+const Buttons = ({ tasks, hideDone, toggleHideDone, toggleAllTasksDone }) => (
     tasks.length > 0 && (
-        <div className="section__buttons--flex">
-            <button onClick={toggleHideDone} className="section__button">
+        <SectionButtons>
+            <Button
+                onClick={toggleHideDone}
+            >
                 {hideDone ? "Pokaz" : "Ukryj"} ukończone
-            </button>
-            <button 
-            onClick={toggleAllTasksDone} 
-            className="section__button header__buttonToggleAllDone--flex" disabled={tasks.every(({ done }) => done)}
+            </Button>
+            <Button
+                onClick={toggleAllTasksDone}
+                disabled={tasks.every(({ done }) => done)}
             >
                 Ukończ wszystkie
-            </button>
-        </div>
+            </Button>
+        </SectionButtons>
     )
 
 
